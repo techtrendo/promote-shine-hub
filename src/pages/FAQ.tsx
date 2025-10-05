@@ -10,6 +10,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AdSpace from "@/components/AdSpace";
+import PageLayout from "@/components/PageLayout";
 
 const FAQ = () => {
   const faqs = [
@@ -87,93 +88,81 @@ const FAQ = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <main className="flex-1 py-8">
-        <div className="container mx-auto px-4">
-          {/* Page Header */}
-          <div className="text-center mb-12">
-            <div className="inline-block mb-4">
-              <Badge className="bg-primary/10 text-primary border-primary/20 px-4 py-2 text-base">
-                <HelpCircle className="h-4 w-4 mr-2 fill-primary" />
-                Help Center
-              </Badge>
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
-              Frequently Asked Questions
-            </h1>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Find answers to common questions about Promote SMM
-            </p>
+      <PageLayout showRightSidebar={true}>
+        {/* Page Header */}
+        <div className="text-center mb-12">
+          <div className="inline-block mb-4">
+            <Badge className="bg-primary/10 text-primary border-primary/20 px-4 py-2 text-base">
+              <HelpCircle className="h-4 w-4 mr-2 fill-primary" />
+              Help Center
+            </Badge>
           </div>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            Frequently Asked Questions
+          </h1>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Find answers to common questions about Promote SMM
+          </p>
+        </div>
 
-          {/* Search Bar */}
-          <div className="max-w-2xl mx-auto mb-12">
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-              <Input
-                type="text"
-                placeholder="Search for answers..."
-                className="pl-12 h-14 text-lg"
-              />
-            </div>
-          </div>
-
-          <div className="grid lg:grid-cols-4 gap-8">
-            {/* FAQ Content */}
-            <div className="lg:col-span-3">
-              <div className="space-y-8">
-                {faqs.map((section, sectionIndex) => (
-                  <div key={sectionIndex}>
-                    <h2 className="text-2xl font-bold mb-4">{section.category}</h2>
-                    <Accordion type="single" collapsible className="space-y-2">
-                      {section.questions.map((faq, faqIndex) => (
-                        <AccordionItem
-                          key={faqIndex}
-                          value={`${sectionIndex}-${faqIndex}`}
-                          className="bg-card border border-border rounded-lg px-6 hover:shadow-md transition-all"
-                        >
-                          <AccordionTrigger className="text-left hover:no-underline">
-                            <span className="font-medium">{faq.q}</span>
-                          </AccordionTrigger>
-                          <AccordionContent className="text-muted-foreground pt-2">
-                            {faq.a}
-                          </AccordionContent>
-                        </AccordionItem>
-                      ))}
-                    </Accordion>
-                  </div>
-                ))}
-              </div>
-
-              {/* Still Need Help */}
-              <div className="mt-12 bg-gradient-subtle rounded-lg p-8 text-center">
-                <HelpCircle className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">Still have questions?</h3>
-                <p className="text-muted-foreground mb-6">
-                  Can't find the answer you're looking for? Our support team is here to help.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a href="/contact">
-                    <button className="px-6 py-3 bg-gradient-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity">
-                      Contact Support
-                    </button>
-                  </a>
-                  <a href="/about">
-                    <button className="px-6 py-3 border border-border rounded-lg font-medium hover:bg-muted transition-colors">
-                      Learn More About Us
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Sidebar */}
-            <div className="lg:col-span-1 space-y-6">
-              <AdSpace size="medium" label="FAQ Sidebar Ad 1" />
-              <AdSpace size="medium" label="FAQ Sidebar Ad 2" />
-            </div>
+        {/* Search Bar */}
+        <div className="max-w-2xl mx-auto mb-12">
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            <Input
+              type="text"
+              placeholder="Search for answers..."
+              className="pl-12 h-14 text-lg"
+            />
           </div>
         </div>
-      </main>
+
+        {/* FAQ Content */}
+        <div className="space-y-8">
+          {faqs.map((section, sectionIndex) => (
+            <div key={sectionIndex}>
+              <h2 className="text-2xl font-bold mb-4">{section.category}</h2>
+              <Accordion type="single" collapsible className="space-y-2">
+                {section.questions.map((faq, faqIndex) => (
+                  <AccordionItem
+                    key={faqIndex}
+                    value={`${sectionIndex}-${faqIndex}`}
+                    className="bg-card border border-border rounded-lg px-6 hover:shadow-md transition-all"
+                  >
+                    <AccordionTrigger className="text-left hover:no-underline">
+                      <span className="font-medium">{faq.q}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground pt-2">
+                      {faq.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          ))}
+        </div>
+
+        {/* Still Need Help */}
+        <div className="mt-12 bg-gradient-subtle rounded-lg p-8 text-center">
+          <HelpCircle className="h-12 w-12 text-primary mx-auto mb-4" />
+          <h3 className="text-2xl font-bold mb-2">Still have questions?</h3>
+          <p className="text-muted-foreground mb-6">
+            Can't find the answer you're looking for? Our support team is here to help.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact">
+              <button className="px-6 py-3 bg-gradient-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity">
+                Contact Support
+              </button>
+            </a>
+            <a href="/about">
+              <button className="px-6 py-3 border border-border rounded-lg font-medium hover:bg-muted transition-colors">
+                Learn More About Us
+              </button>
+            </a>
+          </div>
+        </div>
+      </PageLayout>
 
       <Footer />
     </div>
