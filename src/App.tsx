@@ -15,6 +15,7 @@ import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import AdsSave from "./pages/AdsSave";
+import SocialMediaStores from "./pages/SocialMediaStores";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/ads-save" element={<AdsSave />} />
+          <Route path="/social-media-stores" element={<SocialMediaStores />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
