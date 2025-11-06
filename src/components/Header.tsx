@@ -13,6 +13,7 @@ const Header = () => {
     { name: "New Services", path: "/new-services" },
     { name: "Analytics", path: "/analytics" },
     { name: "Domain Marketplace", path: "/domains" },
+    { name: "Ads Save", path: "/ads-save" },
     { name: "Add Panel", path: "/add-panel" },
     { name: "Advertise", path: "/advertisement" },
   ];
